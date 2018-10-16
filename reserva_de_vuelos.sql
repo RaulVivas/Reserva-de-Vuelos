@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-10-2018 a las 03:26:15
+-- Tiempo de generación: 16-10-2018 a las 13:01:55
 -- Versión del servidor: 10.1.35-MariaDB
 -- Versión de PHP: 7.2.9
 
@@ -32,7 +32,7 @@ CREATE TABLE `asiento` (
   `id_asiento` int(11) NOT NULL,
   `id_vuelo` int(11) NOT NULL,
   `fila_asiento` int(11) NOT NULL,
-  `letra_asieno` varchar(1) NOT NULL,
+  `letra_asiento` varchar(1) NOT NULL,
   `disponibilidad` tinyint(1) NOT NULL,
   `precio` decimal(2,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -71,12 +71,15 @@ CREATE TABLE `cliente` (
 
 INSERT INTO `cliente` (`id_cliente`, `nombre_cliente`, `edad_cliente`, `telefono_cliente`, `nro_pasaporte`, `nro_tarjeta`) VALUES
 (1, 'Raul', 30, '123241234', '123456', '451712384'),
-(7, 'Juan', 34, '123844', '87644', '38736'),
+(7, 'carlitos', 22, 'as12384', 'asd36444', 'asd712393'),
 (8, 'lore', 33, '12384884', '8766444', '3879936'),
 (10, 'lore', 33, '12384884', '8766444', '387993'),
 (11, 'loki', 33, '12384884', '87656444', '3847993'),
-(12, 'loki', 33, '12384884', '87654', '384793'),
-(13, 'loki', 33, '12384884', '87656444', '3847993');
+(13, 'loki', 33, '12384884', '87656444', '3847993'),
+(14, 'juan pedro', 33, '12812384', '87236444', '384712393'),
+(15, 'juan pedro', 33, '12812384', '87236444', '384712393'),
+(16, 'juan pedro', 33, '12812384', '87236444', '384712393'),
+(17, 'matias sanchez', 33, '12812384', '87236444', '384712393');
 
 -- --------------------------------------------------------
 
@@ -118,7 +121,8 @@ CREATE TABLE `vuelo` (
 -- Indices de la tabla `asiento`
 --
 ALTER TABLE `asiento`
-  ADD PRIMARY KEY (`id_asiento`);
+  ADD PRIMARY KEY (`id_asiento`),
+  ADD KEY `id_vuelo` (`id_vuelo`);
 
 --
 -- Indices de la tabla `ciudad`
@@ -137,13 +141,16 @@ ALTER TABLE `cliente`
 --
 ALTER TABLE `compra`
   ADD PRIMARY KEY (`id_compra`),
-  ADD KEY `id_vuelo` (`id_cliente`,`id_asiento`);
+  ADD KEY `id_vuelo` (`id_cliente`,`id_asiento`),
+  ADD KEY `id_asiento` (`id_asiento`);
 
 --
 -- Indices de la tabla `vuelo`
 --
 ALTER TABLE `vuelo`
-  ADD PRIMARY KEY (`id_vuelo`);
+  ADD PRIMARY KEY (`id_vuelo`),
+  ADD KEY `id_ciudad_origen` (`id_ciudad_origen`,`id_ciudad_destino`),
+  ADD KEY `id_ciudad_destino` (`id_ciudad_destino`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -153,13 +160,37 @@ ALTER TABLE `vuelo`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de la tabla `vuelo`
 --
 ALTER TABLE `vuelo`
   MODIFY `id_vuelo` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `asiento`
+--
+ALTER TABLE `asiento`
+  ADD CONSTRAINT `asiento_ibfk_1` FOREIGN KEY (`id_vuelo`) REFERENCES `vuelo` (`id_vuelo`);
+
+--
+-- Filtros para la tabla `compra`
+--
+ALTER TABLE `compra`
+  ADD CONSTRAINT `compra_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`),
+  ADD CONSTRAINT `compra_ibfk_2` FOREIGN KEY (`id_asiento`) REFERENCES `asiento` (`id_asiento`);
+
+--
+-- Filtros para la tabla `vuelo`
+--
+ALTER TABLE `vuelo`
+  ADD CONSTRAINT `vuelo_ibfk_1` FOREIGN KEY (`id_ciudad_origen`) REFERENCES `ciudad` (`id_ciudad`),
+  ADD CONSTRAINT `vuelo_ibfk_2` FOREIGN KEY (`id_ciudad_destino`) REFERENCES `ciudad` (`id_ciudad`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
