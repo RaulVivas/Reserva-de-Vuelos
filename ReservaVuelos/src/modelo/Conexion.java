@@ -19,7 +19,7 @@ public class Conexion {
     private Connection conn; //Conexion
     
     public Conexion() throws ClassNotFoundException {
-        url = "jdbc:mysql://localhost:3307/"+nombreBD; //Inicializa el atributo de la direccion de la base de datos
+        url = "jdbc:mysql://localhost/"+nombreBD; //Inicializa el atributo de la direccion de la base de datos
         Class.forName("org.mariadb.jdbc.Driver"); //Carga las librerias de MySQL o MariaDB
 
     }
