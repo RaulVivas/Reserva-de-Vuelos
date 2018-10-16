@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 package modelo;
-
+import modelo.Cliente;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -37,9 +38,9 @@ public class ClienteData {
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, cliente.getNombreCliente());
             statement.setInt(2, cliente.getEdadCliente());
-            statement.setInt(3, cliente.getTelefonoCliente());
-            statement.setInt(4, cliente.getNroPasaporte());
-            statement.setInt(5, cliente.getNroTarjeta());
+            statement.setString(3, cliente.getTelefonoCliente());
+            statement.setString(4, cliente.getNroPasaporte());
+            statement.setString(5, cliente.getNroTarjeta());
             
             statement.executeUpdate();
             
@@ -68,12 +69,12 @@ public class ClienteData {
             Cliente cliente;
             while(resultSet.next()){
                 cliente = new Cliente();
-                cliente.setId(resultSet.getInt("id"));
-                cliente.setNombreCliente(resultSet.getString("nombreCliente"));
-                cliente.setEdadCliente(resultSet.getInt("edadCliente"));
-                cliente.setTelefonoCliente(resultSet.getInt("telefonoCliente"));
-                cliente.setNroPasaporte(resultSet.getInt("nroPasaporte"));
-                cliente.setNroTarjeta(resultSet.getInt("nroTarjeta"));
+                cliente.setId(resultSet.getInt("id_cliente"));
+                cliente.setNombreCliente(resultSet.getString("nombre_cliente"));
+                cliente.setEdadCliente(resultSet.getInt("edad_cliente"));
+                cliente.setTelefonoCliente(resultSet.getString("telefono_cliente"));
+                cliente.setNroPasaporte(resultSet.getString("nro_pasaporte"));
+                cliente.setNroTarjeta(resultSet.getString("nro_tarjeta"));
                 
                 
                 clientes.add(cliente);
@@ -90,7 +91,7 @@ public class ClienteData {
     public void borrarCliente(int id){
     try {
             
-            String sql = "DELETE FROM cliente WHERE id =?;";
+            String sql = "DELETE FROM cliente WHERE id_cliente =?;";
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setInt(1, id);
@@ -112,15 +113,15 @@ public class ClienteData {
     
         try {
             
-            String sql = "UPDATE cliente SET nombreCliente = ?, edadCliente = ? , telefonoCliente =? , nroPasaporte=? , nroTarjeta=? WHERE id = ?;";
+            String sql = "UPDATE cliente SET nombre_cliente = ?, edad_cliente = ? , telefono_cliente =? , nro_pasaporte=? , nro_tarjeta=? WHERE id_cliente = ?;";
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, cliente.getNombreCliente());
             statement.setInt(2, cliente.getEdadCliente());
-            statement.setInt(3, cliente.getTelefonoCliente());
-            statement.setInt(4, cliente.getNroPasaporte());
-            statement.setInt(5, cliente.getNroTarjeta());
-            statement.setInt(4, cliente.getId());
+            statement.setString(3, cliente.getTelefonoCliente());
+            statement.setString(4, cliente.getNroPasaporte());
+            statement.setString(5, cliente.getNroTarjeta());
+            statement.setInt(6, cliente.getId());
             statement.executeUpdate();
             
             
@@ -137,7 +138,7 @@ public class ClienteData {
      Cliente cliente=null;
     try {
             
-            String sql = "SELECT * FROM cliente WHERE id =?;";
+            String sql = "SELECT * FROM cliente WHERE id_cliente =?;";
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setInt(1, id);
@@ -147,12 +148,12 @@ public class ClienteData {
             
             while(resultSet.next()){
                 cliente = new Cliente();
-                cliente.setId(resultSet.getInt("id"));
-                cliente.setNombreCliente(resultSet.getString("nombreCliente"));
-                cliente.setEdadCliente(resultSet.getInt("edadCliente"));
-                cliente.setTelefonoCliente(resultSet.getInt("telefonoCliente"));
-                cliente.setNroPasaporte(resultSet.getInt("nroPasaporte"));
-                cliente.setNroTarjeta(resultSet.getInt("nroTarjeta"));
+                cliente.setId(resultSet.getInt("id_cliente"));
+                cliente.setNombreCliente(resultSet.getString("nombre_cliente"));
+                cliente.setEdadCliente(resultSet.getInt("edad_cliente"));
+                cliente.setTelefonoCliente(resultSet.getString("telefono_cliente"));
+                cliente.setNroPasaporte(resultSet.getString("nro_pasaporte"));
+                cliente.setNroTarjeta(resultSet.getString("nro_tarjeta"));
 
                 
             }      
