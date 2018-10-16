@@ -15,11 +15,19 @@ public class Cliente {
     private int id = -1;
     private String nombreCliente;
     private int edadCliente;
-    private int telefonoCliente;
-    private int nroPasaporte;
-    private int nroTarjeta;
+    private String telefonoCliente;
+    private String nroPasaporte;
+    private String nroTarjeta;
 
-    public Cliente(String nombreCliente, int edadCliente, int telefonoCliente, int nroPasaporte, int nroTarjeta) {
+    public Cliente(String nombreCliente, int edadCliente, String telefonoCliente, String nroPasaporte, String nroTarjeta) {
+        this.nombreCliente = nombreCliente;
+        this.edadCliente = edadCliente;
+        this.telefonoCliente = telefonoCliente;
+        this.nroPasaporte = nroPasaporte;
+        this.nroTarjeta = nroTarjeta;
+    }
+    public Cliente(int id,String nombreCliente, int edadCliente, String telefonoCliente, String nroPasaporte, String nroTarjeta) {
+        this.id=id;
         this.nombreCliente = nombreCliente;
         this.edadCliente = edadCliente;
         this.telefonoCliente = telefonoCliente;
@@ -28,6 +36,7 @@ public class Cliente {
     }
 
     public Cliente() {
+        this.id = -1;
     }
 
     public int getId() {
@@ -54,27 +63,27 @@ public class Cliente {
         this.edadCliente = edadCliente;
     }
 
-    public int getTelefonoCliente() {
+    public String getTelefonoCliente() {
         return telefonoCliente;
     }
 
-    public void setTelefonoCliente(int telefonoCliente) {
+    public void setTelefonoCliente(String telefonoCliente) {
         this.telefonoCliente = telefonoCliente;
     }
 
-    public int getNroPasaporte() {
+    public String getNroPasaporte() {
         return nroPasaporte;
     }
 
-    public void setNroPasaporte(int nroPasaporte) {
+    public void setNroPasaporte(String nroPasaporte) {
         this.nroPasaporte = nroPasaporte;
     }
 
-    public int getNroTarjeta() {
+    public String getNroTarjeta() {
         return nroTarjeta;
     }
 
-    public void setNroTarjeta(int nroTarjeta) {
+    public void setNroTarjeta(String nroTarjeta) {
         this.nroTarjeta = nroTarjeta;
     }
     
