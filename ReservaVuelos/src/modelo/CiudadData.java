@@ -1,5 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
+ *To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -66,7 +66,7 @@ public class CiudadData {
             Ciudad ciudad;
             while(resultSet.next()){
                 ciudad = new Ciudad();
-                ciudad.setId(resultSet.getInt("id_cliente"));
+                ciudad.setId(resultSet.getInt("id_ciudad"));
                 ciudad.setNombrePais(resultSet.getString("nombre_pais"));
                 ciudad.setNombreCiudad(resultSet.getString("nombre_ciudad"));
                 ciudad.setCodigoCiudad(resultSet.getString("codigo_ciudad"));
@@ -76,7 +76,7 @@ public class CiudadData {
             }      
             statement.close();
         } catch (SQLException ex) {
-            System.out.println("Error al obtener los clientes: " + ex.getMessage());
+            System.out.println("Error al obtener las ciudades: " + ex.getMessage());
         }
         
         
@@ -104,7 +104,7 @@ public class CiudadData {
     
     }
     
-    public void actualizarCliente(Ciudad ciudad){
+    public void actualizarCiudad(Ciudad ciudad){
     
         try {
             
@@ -141,7 +141,7 @@ public class CiudadData {
             
             while(resultSet.next()){
                 ciudad = new Ciudad();
-                ciudad.setId(resultSet.getInt("id_cliente"));
+                ciudad.setId(resultSet.getInt("id_ciudad"));
                 ciudad.setNombrePais(resultSet.getString("nombre_pais"));
                 ciudad.setNombreCiudad(resultSet.getString("nombre_ciudad"));
                 ciudad.setCodigoCiudad(resultSet.getString("codigo_ciudad"));
@@ -152,7 +152,7 @@ public class CiudadData {
                         
     
         } catch (SQLException ex) {
-            System.out.println("Error al buscar cliente: " + ex.getMessage());
+            System.out.println("Error al buscar ciudad: " + ex.getMessage());
         }
         
         return ciudad;
