@@ -73,13 +73,13 @@ public class VueloData {
             while(resultSet.next()){
                 vuelo = new Vuelo();
                 vuelo.setId(resultSet.getInt("id_vuelo"));
-                vuelo.setNroVuelo(resultSet.getInt("nro_vuelo"));
+                vuelo.setNroVuelo(resultSet.getInt("numero_de_vuelo"));
                 
-                Ciudad ciudadOrigen=buscarCiudad(resultSet.getInt("id_ciudad_origen"));
-                vuelo.setCiudadOrigen(ciudadOrigen);
+                //Ciudad ciudadOrigen=buscarCiudad(resultSet.getInt("id_ciudad_origen"));
+                //vuelo.setCiudadOrigen(ciudadOrigen);
                 
-                Ciudad ciudadDestino=buscarCiudad(resultSet.getInt("id_ciudad_destino"));
-                vuelo.setCiudadOrigen(ciudadDestino);
+                //Ciudad ciudadDestino=buscarCiudad(resultSet.getInt("id_ciudad_destino"));
+                //vuelo.setCiudadOrigen(ciudadDestino);
                 
                 
                 vuelo.setFechaLlegada(resultSet.getDate("fecha_salida").toLocalDate());
@@ -171,13 +171,13 @@ public class VueloData {
             while(resultSet.next()){
                 vuelo = new Vuelo();
                 vuelo.setId(resultSet.getInt("id_vuelo"));
-                vuelo.setNroVuelo(resultSet.getInt("nro_vuelo"));
+                vuelo.setNroVuelo(resultSet.getInt("numero_de_vuelo"));
                 
-                Ciudad ciudadOrigen=buscarCiudad(resultSet.getInt("id_ciudad_origen"));
-                vuelo.setCiudadOrigen(ciudadOrigen);
+                //Ciudad ciudadOrigen=buscarCiudad(resultSet.getInt("id_ciudad_origen"));
+                //vuelo.setCiudadOrigen(ciudadOrigen);
                 
-                Ciudad ciudadDestino=buscarCiudad(resultSet.getInt("id_ciudad_destino"));
-                vuelo.setCiudadOrigen(ciudadDestino);
+                //Ciudad ciudadDestino=buscarCiudad(resultSet.getInt("id_ciudad_destino"));
+                //vuelo.setCiudadOrigen(ciudadDestino);
                 
                 
                 vuelo.setFechaLlegada(resultSet.getDate("fecha_salida").toLocalDate());
@@ -191,7 +191,7 @@ public class VueloData {
                         
     
         } catch (SQLException ex) {
-            System.out.println("Error al buscar cliente: " + ex.getMessage());
+            System.out.println("Error al buscar vuelo: " + ex.getMessage());
         }
         
         return vuelo;
