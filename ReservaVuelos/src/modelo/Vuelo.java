@@ -32,6 +32,20 @@ public class Vuelo {
         this.avion = avion;
     }
 
+    public Vuelo(int id,int nroVuelo, Ciudad ciudadOrigen, Ciudad ciudadDestino, LocalDate fechaSalida, LocalDate fechaLlegada, String aerolinea, String avion) {
+        this.id=id;
+        this.nroVuelo = nroVuelo;
+        this.ciudadOrigen = ciudadOrigen;
+        this.ciudadDestino = ciudadDestino;
+        this.fechaSalida = fechaSalida;
+        this.fechaLlegada = fechaLlegada;
+        this.aerolinea = aerolinea;
+        this.avion = avion;
+    }
+    
+    
+    
+    
     public Vuelo() {
     }
 
