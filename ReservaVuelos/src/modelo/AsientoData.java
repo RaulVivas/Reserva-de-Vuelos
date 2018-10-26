@@ -72,8 +72,8 @@ public class AsientoData {
             while(resultSet.next()){
                 asiento = new Asiento();
                 
-                Vuelo v=buscarVuelo(resultSet.getInt("id_vuelo"));
-                asiento.setVuelo(v);
+                //Vuelo v=buscarVuelo(resultSet.getInt("id_vuelo"));
+                //asiento.setVuelo(v);
                 asiento.setFilaAsiento(resultSet.getInt("fila_asiento"));
                 asiento.setLetraAsiento(resultSet.getString("letra_asiento"));
                 asiento.setDisponibilidad(resultSet.getBoolean("disponibilidad"));
@@ -142,8 +142,8 @@ public class AsientoData {
             while(resultSet.next()){
                 asiento = new Asiento();
                 
-                Vuelo v=buscarVuelo(resultSet.getInt("id_vuelo"));
-                asiento.setVuelo(v);
+                //Vuelo v=buscarVuelo(resultSet.getInt("id_vuelo"));
+                //asiento.setVuelo(v);
                 asiento.setFilaAsiento(resultSet.getInt("fila_asiento"));
                 asiento.setLetraAsiento(resultSet.getString("letra_asiento"));
                 asiento.setDisponibilidad(resultSet.getBoolean("disponibilidad"));
