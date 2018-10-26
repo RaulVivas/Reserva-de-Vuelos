@@ -167,6 +167,24 @@ ALTER TABLE `cliente`
 --
 ALTER TABLE `vuelo`
   MODIFY `id_vuelo` int(11) NOT NULL AUTO_INCREMENT;
+  
+--
+-- AUTO_INCREMENT de la tabla `cliente`
+--
+ALTER TABLE `compra`
+  MODIFY `id_compra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  
+--
+-- AUTO_INCREMENT de la tabla `asiento`
+--
+ALTER TABLE `asiento`
+  MODIFY `id_asiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  
+--
+-- AUTO_INCREMENT de la tabla `ciudad`
+--
+ALTER TABLE `ciudad`
+  MODIFY `id_ciudad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- Restricciones para tablas volcadas
