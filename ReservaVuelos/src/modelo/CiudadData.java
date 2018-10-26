@@ -1,5 +1,5 @@
 /*
- *To change this license header, choose License Headers in Project Properties.
+ * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -32,7 +32,7 @@ public class CiudadData {
     public void guardarCiudad(Ciudad ciudad){
         try {
             
-            String sql = "INSERT INTO cliente (nombre_pais, nombre_ciudad, codigo_ciudad) VALUES ( ? , ? , ? );";
+            String sql = "INSERT INTO ciudad (nombre_pais, nombre_ciudad, codigo_ciudad) VALUES ( ? , ? , ? );";
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, ciudad.getNombrePais());
