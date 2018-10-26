@@ -21,9 +21,18 @@ public class Ciudad {
         this.nombreCiudad = nombreCiudad;
         this.codigoCiudad = codigoCiudad;
     }
+
+    public Ciudad(int id,String nombrePais, String nombreCiudad, String codigoCiudad) {
+        this.id=id;
+        this.nombrePais = nombrePais;
+        this.nombreCiudad = nombreCiudad;
+        this.codigoCiudad = codigoCiudad;
+    }
+    
+    
     
     public Ciudad(){
-        
+        this.id=-1;
     }
 
     public int getId() {
